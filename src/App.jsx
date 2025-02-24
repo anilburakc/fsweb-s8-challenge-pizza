@@ -1,10 +1,9 @@
 import { useState } from 'react'
 import './App.css'
-import Home from './Component/Home'
-import Order from './Component/Order'
-import Succsess from './Component/Succsess'
-import { Route, Switch } from 'react-router-dom/cjs/react-router-dom.min'
-
+import Home from './Component/Home.jsx'
+import Order from './Component/Order.jsx'
+import Succsess from './Component/Success.jsx'
+import { Route, Switch } from 'react-router-dom'
 function App() {
 
   return (
