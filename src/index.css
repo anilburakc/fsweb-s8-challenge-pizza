@@ -10,43 +10,47 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #747bff;
-}
-
-body {
+html,
+body{
+  height: 100%;
   margin: 0;
+  padding: 0;
+}
+
+body{
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.home-container{
   display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+  flex-direction: column;
+  align-items: center;
+
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+.home-container p{
+  padding: 0;
+  margin: 10px;
+  text-align: center;
+  font-size: 36px;
+  color: #FAF7F2;
 }
 
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #f9f9f9;
-  cursor: pointer;
-  transition: border-color 0.25s;
+.home-container img{
+  padding-top: 20px;
+  margin-top: 20px;
+  width: 150px;
+  height: 30px;
+  color: #FAF7F2;
 }
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+
+.home-container button{
+  border: none;
+  border-radius: 50px;
+  width: 100px;
+  height: 30px;
+  background-color: #FDC913;
+
 }
