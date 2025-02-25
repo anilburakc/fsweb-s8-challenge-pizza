@@ -82,8 +82,52 @@ export default function Order({formData, handleChange}){
             </section>
             <div>
                 <form>
-                    <label>Ek Malzemeler</label>
-                    {ekler.map((ek)=>(
+                    <fieldset className="form-select">
+                        <div className="select-radio">
+                            <legend className="select-legend">Boyut Sec</legend>
+                            <label className="select-radio-item">
+                                <input 
+                                    type="radio"
+                                    onChange={handleChange}
+                                    name="boyutSec"
+                                    value='kucuk'
+                                />
+                                Kucuk
+                            </label>
+                            <label className="select-radio-item">
+                                <input 
+                                    type="radio"
+                                    onChange={handleChange}
+                                    name="boyutSec"
+                                    value='orta'
+                                />
+                                Orta
+                            </label>
+                            <label className="select-radio-item">
+                                <input 
+                                    type="radio"
+                                    onChange={handleChange}
+                                    name="boyutSec"
+                                    value='buyuk'
+                                />
+                                Buyuk
+                            </label>
+                        </div>
+                        <div className="select-option">
+                            <legend className="select-legend">Hamur Sec</legend>
+                            <select>
+                                <option value='ince'>Ince</option>
+                                <option value='normal'>Normal</option>
+                                <option value='kalin'>Kalin</option>
+                            </select>
+                        </div>
+
+                    </fieldset>
+                    <fieldset className="form-ek">
+                    <legend>Ek Malzemeler</legend>
+                    <p className="form-ek-info">en fazla 10 malzeme sec</p>
+                        <div className="checkbox-container">
+                        {ekler.map((ek)=>(
                         <OrderCheck 
                             key={ek.value}
                             changeFunc={handleChange}
@@ -92,7 +136,9 @@ export default function Order({formData, handleChange}){
                             value={ek.value}
                             label={ek.label}
                         />
-                    ))}
+                        ))}
+                        </div>
+                    </fieldset>
                 </form>
             </div>
             <footer>siparis toplami</footer>

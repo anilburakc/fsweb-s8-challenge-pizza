@@ -57,3 +57,37 @@ body{
   height: 30px;
   background-color: #FDC913;
 }
+
+.form-select{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  border:none;
+}
+
+.select-radio{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.form-ek{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  flex-wrap: wrap;
+  margin: 400px;
+}
+
+.form-ek-info{
+  display: block;
+  margin-bottom: 10px;
+}
+
+.checkbox-container{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  align-items: center;
+}
