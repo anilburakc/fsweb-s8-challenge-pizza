@@ -156,7 +156,19 @@ export default function Order({ formData, handleChange }) {
 
                     </form>
                 </section>
-                <footer>siparis toplami</footer>
+                <footer className="footer-content">
+                    <div className="arttir-azalt">
+                        <button id="azalt">-</button>
+                        <input type="text" id="sayac" defaultValue="1"/>
+                        <button id="arttir">+</button>
+                    </div>
+                    <div className="footer-order">
+                        <h1>Siparis Toplami</h1>
+                        <p>Secimler</p>
+                        <p>Toplam</p>
+                        <button>Siparis Ver</button>
+                    </div>
+                </footer>
 
             </main>
         </>

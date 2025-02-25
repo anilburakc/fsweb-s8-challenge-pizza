@@ -11,14 +11,14 @@
 }*/
 
 html,
-body{
+body {
   height: 100vh;
   margin: 0;
   padding: 0;
 }
 
 
-.home-container{
+.home-container {
   background: url('images/iteration-1-images/home-banner.png');
   background-repeat: no-repeat;
   background-position: center;
@@ -28,13 +28,13 @@ body{
 }
 
 
-.home-container{
+.home-container {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.home-container p{
+.home-container p {
   padding: 0;
   margin: 10px;
   text-align: center;
@@ -42,7 +42,7 @@ body{
   color: #FAF7F2;
 }
 
-.home-container img{
+.home-container img {
   padding-top: 20px;
   margin-top: 20px;
   width: 150px;
@@ -50,7 +50,7 @@ body{
   color: #FAF7F2;
 }
 
-.home-container button{
+.home-container button {
   border: none;
   border-radius: 50px;
   width: 100px;
@@ -67,7 +67,7 @@ body{
   height: 100%;
 }*/
 
-.order-header{
+.order-header {
   display: flex;
   flex-direction: column;
   background-color: #CE2829;
@@ -78,16 +78,16 @@ body{
   gap: 0.1rem;
 }
 
-.order-header img{
+.order-header img {
   padding: 2rem;
   width: 30rem;
 }
 
-.header-nav{
+.header-nav {
   width: 40rem;
 }
 
-.order-main{
+.order-main {
   display: flex;
   flex-direction: column;
   width: 40rem;
@@ -95,42 +95,110 @@ body{
   justify-self: center;
   min-height: 86vh;
 }
+
 /*.order-info,
 .order-form,
 .order-main footer{
   justify-content: 
 }*/
 
-.order-info-div{
+.order-info-div {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 50px;
   align-items: center;
 }
-.order-info-div > :nth-child(1){
+
+.order-info-div> :nth-child(1) {
   font-size: 30px;
   text-align: left;
   margin: 0;
 }
-.order-info-div > :nth-child(2){
+
+.order-info-div> :nth-child(2) {
   text-align: right;
 }
-.order-info-div > :nth-child(3){
+
+.order-info-div> :nth-child(3) {
   text-align: left;
 }
 
-.form-select{
+.form-content {
+  width: 40rem;
+}
+
+.form-select {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   border: none;
 }
 
 .select-radio-item,
-.select-option-item{
+.select-option-item {
   display: flex;
   flex-direction: column;
   gap: 10px;
   margin-top: 10px;
   margin-bottom: 10px;
   width: 5rem;
+}
+
+.form-ekMalzemeler {
+  margin-top: 25px;
+  display: flex;
+  flex-direction: column;
+}
+
+.checkbox-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.isim-not {
+  margin-top: 25px;
+  gap: 5px;
+  display: flex;
+  flex-direction: column;
+}
+
+.footer-content {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+
+}
+
+.footer-content button {
+  width: 10rem;
+}
+
+.arttir-azalt {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  margin-top: 30px;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+}
+
+.arttir-azalt> :nth-child(1) {
+  width: 80px;
+  height: 80px;
+  margin: 0;
+  padding: 0;
+}
+
+.arttir-azalt> :nth-child(2) {
+  width: 80px;
+  height: 80px;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+}
+
+.arttir-azalt> :nth-child(3) {
+  width: 80px;
+  height: 80px;
+  margin: 0;
+  padding: 0;
 }
