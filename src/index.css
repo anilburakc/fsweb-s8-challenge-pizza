@@ -18,11 +18,13 @@ body{
 }
 
 
-body{
-  background-image: url('images/iteration-1-images/home-banner.png'); /*burada bir duzenleme*/
+.home-container{
+  background: url('images/iteration-1-images/home-banner.png');
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
+  width: 100vw;
+  height: 100vh;
 }
 
 
@@ -30,7 +32,6 @@ body{
   display: flex;
   flex-direction: column;
   align-items: center;
-
 }
 
 .home-container p{
