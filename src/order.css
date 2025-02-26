@@ -24,6 +24,7 @@
 .header-nav a{
     text-decoration: none;
     flex: 90%;
+    color:white
 
 }
 
@@ -211,7 +212,10 @@
 }
 
 .footer-order button {
-
+    border: none;
+    border-radius: 50px;
+    height: 30px;
+    background-color: #FDC913;
     margin-top: 10px;
 }
 
@@ -226,6 +230,8 @@
     flex: 25%;
     width: 25%;
     height: 25%;
+    border: none;
+    background-color: #FDC913;
 }
 
 .arttir-azalt> :nth-child(2) {
@@ -241,5 +247,7 @@
     flex: 25%;
     width: 25%;
     height: 25%;
+    border: none;
+    background-color: #FDC913;
 }
 
