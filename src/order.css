@@ -1,62 +1,188 @@
-
+.deneme{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+}
 .order-header {
+    background-color: #CE2829;
+    width: 100%;
+    text-align: center;
 }
 
 .order-header img {
+
 }
 
 .header-nav {
+
+    width: 90%;
+    margin: auto;
+    text-align: start;
+}
+
+.header-nav a{
+    text-decoration: none;
+    flex: 90%;
+
 }
 
 .order-main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 90%;
+    margin: 0 auto;
+    padding: 0 15px;
+
+    min-height: calc(100vh - 6vh);
+    row-gap: 1.5rem;
+
 }
+@media (min-width: 1200px){
+    .order-main{
+        width: 20%;
+    }
+    .header-nav {
+ 
+        width: 20%;
+        margin: auto;
+        text-align: start;
+    }
+    .order-header img {
+
+    }
+}
+
 
 
 .order-info-div {
+    display: flex;
+
 }
 
 .order-info-div> :nth-child(1) {
+    flex: 80%;
+
 }
 
 .order-info-div> :nth-child(2) {
+    text-align: left;
+    padding-right: 20px;
+    flex: 15%;
+
 }
 
 .order-info-div> :nth-child(3) {
+
+    flex: 15%;
 }
 
+.info-yazi{
+
+}
+
+.order-form{
+    width: 100%;
+}
 .form-content {
+
 }
 
 .form-select {
+
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
 }
 
 .select-radio-item,
 .select-option-item {
+
+    display: flex;
+    flex-direction: column;
+    
+}
+.select-option-item select{
+    width: 30%;
 }
 
 .form-ekMalzemeler {
+
+    display: flex;
+    flex-direction: column;
 }
 
 .checkbox-container {
+
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+@media (min-width: 1200px){
+    .checkbox-container {
+
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+    }
 }
 
 .isim-not {
+
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
 }
 
 .footer-content {
+
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+.footer-order{
+    display: flex;
+    flex-direction: column;
+    flex: 75%;
+}
+.footer-order h1{
+    margin-left: 70px;
+    margin-bottom: 0;
+}
+.footer-order p{
+    margin-left: 70px;
+    margin-bottom: 0;
 }
 
-.footer-content button {
+.footer-order button {
+
+    margin-top: 10px;
 }
 
 .arttir-azalt {
+    display: flex;
+    flex: 25%;
+    align-items: start;
 }
 
 .arttir-azalt> :nth-child(1) {
+
+    flex: 25%;
+    width: 25%;
+    height: 25%;
 }
 
 .arttir-azalt> :nth-child(2) {
+
+    flex: 50%;
+    width: 25%;
+    height: 25%;
+    text-align: center;
 }
 
 .arttir-azalt> :nth-child(3) {
+
+    flex: 25%;
+    width: 25%;
+    height: 25%;
 }
+

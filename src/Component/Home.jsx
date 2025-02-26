@@ -6,6 +6,8 @@ export default function Home(){
         <img src="/images/iteration-1-images/logo.svg"/>
         <p>
           KOD ACIKTIRIR
+        </p>
+        <p>
           PIZZA DOYURUR
         </p>
         <Link to='/order'>

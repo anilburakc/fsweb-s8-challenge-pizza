@@ -58,7 +58,7 @@ export default function Order({ formData, handleChange }) {
     ];
 
     return (
-        <>
+        <section className="deneme">
             <header className="order-header">
                 <img src="/images/iteration-1-images/logo.svg" alt="Logo" />
                 <nav className="header-nav">
@@ -74,7 +74,7 @@ export default function Order({ formData, handleChange }) {
                         <p>4.9</p>
                         <p>(200)</p>
                     </div>
-                    <p >Frontent Dev olarak hala position:absolute kullaniyorsan bu cok aci
+                    <p c>Frontent Dev olarak hala position:absolute kullaniyorsan bu cok aci
                         pizza tam sana gore. Pizza, domates, peynir ve genellikle cesitli diger
                         malzemelerle kaplanmis, daha sonra geleneksel olarak odun atesinde bir
                         firinda yuksek sicaklikta pisirilen, genellikle yuvarlak, duzlestirilmis
@@ -171,6 +171,6 @@ export default function Order({ formData, handleChange }) {
                 </footer>
 
             </main>
-        </>
+        </section>
     );
 }
