@@ -2,7 +2,7 @@ import { NavLink } from "react-router-dom";
 import OrderCheck from "./OrderCheck";
 import { useEffect, useState } from "react";
 
-export default function Order({ formData, handleChange, setFormData }) {
+export default function Order({ formData, handleChange, setFormData, isValid, errors, errorMesajlari }) {
     const ekler = [
         {
             label: 'Pepperoni',
@@ -58,12 +58,8 @@ export default function Order({ formData, handleChange, setFormData }) {
         },
     ];
 
-    const [fiyat, setFiyat] = useState(0)
-    const [secTop, setSecTop] = useState(0)
-
-    
-    useEffect(()=>{setFormData((formData)=>({...formData, secimler: formData.ekMalzemeler.length * 5 * formData.count}))}, [formData.ekMalzemeler, formData.count]);
-    useEffect(()=>{setFormData((formData)=>({...formData, toplam: 85.5 * formData.count}))}, [formData.count])
+    useEffect(() => { setFormData((formData) => ({ ...formData, secimler: formData.ekMalzemeler.length * 5 * formData.count })) }, [formData.ekMalzemeler, formData.count]);
+    useEffect(() => { setFormData((formData) => ({ ...formData, toplam: 85.5 * formData.count })) }, [formData.count])
 
     return (
         <section className="deneme">
@@ -94,7 +90,7 @@ export default function Order({ formData, handleChange, setFormData }) {
                     <form className="form-content">
                         <fieldset className="form-select">
                             <div className="select-radio-item">
-                                <legend className="select-legend">Boyut Sec</legend>
+                                <legend className="select-legend">Boyut Sec{errors.boyutSec && <span style={{ color: 'red' }}>*</span>}</legend>
                                 <label>
                                     <input
                                         type="radio"
@@ -126,7 +122,7 @@ export default function Order({ formData, handleChange, setFormData }) {
                             </div>
 
                             <div className="select-option-item">
-                                <legend className="select-legend">Hamur Sec</legend>
+                                <legend className="select-legend">Hamur Sec{errors.hamurSec && <span style={{ color: 'red' }}>*</span>}</legend>
                                 <select name='hamurSec' value={formData.hamurSec} onChange={handleChange}>
                                     <option value='' disabled>Hamur Kalinligi Sec</option>
                                     <option value='ince'>Ince</option>
@@ -137,7 +133,7 @@ export default function Order({ formData, handleChange, setFormData }) {
                         </fieldset>
                         <fieldset className="form-ekMalzemeler">
                             <legend>Ek Malzemeler</legend>
-                            <p className="form-ek-info">en fazla 10 malzeme sec</p>
+                            {errors.ekMalzemeler && <p className="form-ek-info" style={{ color: 'red' }}>En az 4, en fazla 10 malzeme sec.</p>}
                             <div className="checkbox-container">
                                 {ekler.map((ek) => (
                                     <OrderCheck
@@ -154,6 +150,7 @@ export default function Order({ formData, handleChange, setFormData }) {
 
                         <fieldset className="isim-not">
                             <label htmlFor="isim">Isminizi giriniz:</label>
+                            {errors.isim && <span style={{ color: 'red' }}>{errorMesajlari.isim}</span>}
                             <input
                                 type="text"
                                 id="isim"
@@ -169,15 +166,15 @@ export default function Order({ formData, handleChange, setFormData }) {
                 </section>
                 <footer className="footer-content">
                     <div className="arttir-azalt">
-                        <button id="azalt" onClick={() => setFormData((formData)=>({...formData, count: formData.count > 1 ? formData.count-1: formData.count}))}>-</button>
-                        <input name='count' type="text" id="sayac" value={formData.count} readOnly/>
-                        <button id="arttir" onClick={() => setFormData({...formData, count: formData.count + 1})}>+</button>
+                        <button id="azalt" onClick={() => setFormData((formData) => ({ ...formData, count: formData.count > 1 ? formData.count - 1 : formData.count }))}>-</button>
+                        <input name='count' type="text" id="sayac" value={formData.count} readOnly />
+                        <button id="arttir" onClick={() => setFormData({ ...formData, count: formData.count + 1 })}>+</button>
                     </div>
                     <div className="footer-order">
                         <h1>Siparis Toplami</h1>
                         <p>Secimler: {formData.secimler}</p>
                         <p>Toplam: {formData.toplam + formData.secimler}</p>
-                        <button>Siparis Ver</button>
+                        <button disabled={!isValid}>Siparis Ver</button>
                     </div>
                 </footer>
 
