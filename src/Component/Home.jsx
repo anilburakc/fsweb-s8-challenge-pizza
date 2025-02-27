@@ -5,10 +5,7 @@ export default function Home(){
       <div className="home-container">
         <img src="/images/iteration-1-images/logo.svg"/>
         <p>
-          KOD ACIKTIRIR
-        </p>
-        <p>
-          PIZZA DOYURUR
+          KOD ACIKTIRIR <br/> PIZZA DOYURUR
         </p>
         <Link to='/order'>
           <button>ACIKTIM</button>

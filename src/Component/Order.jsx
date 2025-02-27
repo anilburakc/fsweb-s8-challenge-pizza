@@ -2,64 +2,64 @@ import { NavLink } from "react-router-dom";
 import OrderCheck from "./OrderCheck";
 import { useEffect, useState } from "react";
 
-export default function Order({ formData, handleChange, setFormData, isValid, errors, errorMesajlari }) {
+export default function Order({ formData, handleChange, setFormData, isValid, errors, errorMesajlari, handleSubmit }) {
     const ekler = [
         {
             label: 'Pepperoni',
-            value: 'pepperoni',
+            value: ' pepperoni',
         },
         {
             label: 'Domates',
-            value: 'domates',
+            value: ' domates',
         },
         {
             label: 'Biber',
-            value: 'biber',
+            value: ' biber',
         },
         {
             label: 'Sosis',
-            value: 'sosis',
+            value: ' sosis',
         },
         {
             label: 'Misir',
-            value: 'misir',
+            value: ' misir',
         },
         {
             label: 'Sucuk',
-            value: 'sucuk',
+            value: ' sucuk',
         },
         {
             label: 'Kanada Jambonu',
-            value: 'kanadaJambonu',
+            value: ' kanada Jambonu',
         },
         {
             label: 'Ananas',
-            value: 'ananas',
+            value: ' ananas',
         },
         {
             label: 'Tavuk Izgara',
-            value: 'tavukIzgara',
+            value: ' tavuk Izgara',
         },
         {
             label: 'Jalepeno',
-            value: 'jalepeno',
+            value: ' jalepeno',
         },
         {
             label: 'Kabak',
-            value: 'kabak',
+            value: ' kabak',
         },
         {
             label: 'Sogan',
-            value: 'sogan',
+            value: ' sogan',
         },
         {
             label: 'Sarimsak',
-            value: 'sarimsak',
+            value: ' sarimsak',
         },
     ];
 
     useEffect(() => { setFormData((formData) => ({ ...formData, secimler: formData.ekMalzemeler.length * 5 * formData.count })) }, [formData.ekMalzemeler, formData.count]);
-    useEffect(() => { setFormData((formData) => ({ ...formData, toplam: 85.5 * formData.count })) }, [formData.count])
+    useEffect(() => { setFormData((formData) => ({ ...formData, toplam: (85.5 * formData.count)+formData.secimler })) }, [formData.ekMalzemeler, formData.count])
 
     return (
         <section className="deneme">
@@ -74,7 +74,7 @@ export default function Order({ formData, handleChange, setFormData, isValid, er
                 <section className="order-info">
                     <h2>Position Absolute Aci Pizza</h2>
                     <div className="order-info-div">
-                        <p style={{ fontWeight: 'bold' }}>85.5₺</p>
+                        <p style={{ fontWeight: 'bold' }}>{formData.fiyat}₺</p>
                         <p>4.9</p>
                         <p>(200)</p>
                     </div>
@@ -173,8 +173,8 @@ export default function Order({ formData, handleChange, setFormData, isValid, er
                     <div className="footer-order">
                         <h1>Siparis Toplami</h1>
                         <p>Secimler: {formData.secimler}</p>
-                        <p>Toplam: {formData.toplam + formData.secimler}</p>
-                        <button disabled={!isValid}>Siparis Ver</button>
+                        <p>Toplam: {formData.toplam}</p>
+                        <button disabled={!isValid} onClick={handleSubmit}>Siparis Ver</button>
                     </div>
                 </footer>
 

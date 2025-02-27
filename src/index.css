@@ -62,3 +62,21 @@ body {
   height: 30px;
   background-color: #FDC913;
 }
+
+.succsess-main{
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  height: 100vh;
+  align-items: center;
+}
+
+.succsess-main img{
+  margin-top: 5rem;
+  width: 20rem;
+  height: 5rem;
+}
+.succsess-main h1{
+  text-align: center;
+  margin-top: 15rem;
+}

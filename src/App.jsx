@@ -4,6 +4,8 @@ import Home from './Component/Home.jsx'
 import Order from './Component/Order.jsx'
 import Succsess from './Component/Succsess.jsx'
 import { Route, Switch } from 'react-router-dom'
+import axios from 'axios'
+import { useHistory } from 'react-router-dom/cjs/react-router-dom.min.js'
 
 
 const initialFormData = {
@@ -14,14 +16,15 @@ const initialFormData = {
   comment: '',
   toplam: '',
   secimler: 0,
-  count: 1
+  count: 1,
+  fiyat:85.5
 }
 const errorMesajlari ={
   isim: 'En az 3 karakter olmali',
 }
 function App() {
   const [formData, setFormData] = useState(initialFormData)
-  const [isValid, setIsvalid] = useState(false)
+  const [isValid, setIsValid] = useState(false)
   const [errors, setErrors] = useState({
     boyutSec: true,
     hamurSec: true,
@@ -30,11 +33,22 @@ function App() {
   })
 
   useEffect(()=>{
-    setErrors((error)=>({...error, isim:formData.isim.length>=3 ? false:true}))
-    setErrors((error)=>({...error, ekMalzemeler:formData.ekMalzemeler.length>3 && formData.ekMalzemeler.length<11 ? false:true}))
-    setErrors((error)=>({...error, hamurSec:formData.hamurSec.length===0 ? true:false}))
-    setErrors((error)=>({...error, boyutSec:formData.boyutSec.length===0 ? true:false}))
+    setErrors((error)=>({...error, isim:formData.isim.length>=3 ? false:true,
+      hamurSec:formData.hamurSec.length===0 ? true:false,
+      boyutSec:formData.boyutSec.length===0 ? true:false,
+      ekMalzemeler:formData.ekMalzemeler.length>3 && formData.ekMalzemeler.length<11 ? false:true
+    }))
   }, [formData])
+
+  useEffect(()=>{
+    if (errors.boyutSec === false && errors.hamurSec=== false && errors.ekMalzemeler=== false && errors.isim=== false) {
+      setIsValid(true)
+    }else{
+      setIsValid(false)
+    }
+  }, [errors])
+
+  const history = useHistory();
 
   function handleChange(event) {
     let newValue;
@@ -60,7 +74,18 @@ function App() {
       formData
     })
       .then(function (response) {
+        const{boyutSec, hamurSec, ekMalzemeler, isim, comment, count}= response.data.formData
         console.log(response);
+        console.log(`Siparis Ozeti:
+          Tarih: ${response.data.createdAt}
+          Boyut: ${boyutSec}
+          Hamur Kalinligi: ${hamurSec}
+          Ek Malzemeler: ${ekMalzemeler}
+          Isim: ${isim}
+          Siparis Notu: ${comment}
+          Siparis Adedi: ${count}
+          `)
+        history.push('/succsess')
       })
       .catch(function (error) {
         console.log(error);
