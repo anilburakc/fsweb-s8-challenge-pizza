@@ -31,6 +31,7 @@ function App() {
       newValue = value;
     }
     setFormData({...formData, [name]: newValue})
+    console.log(newValue)
   }
 
   return (

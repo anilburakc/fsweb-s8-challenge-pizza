@@ -1,5 +1,6 @@
 import { NavLink } from "react-router-dom";
 import OrderCheck from "./OrderCheck";
+import { useEffect, useState } from "react";
 
 export default function Order({ formData, handleChange }) {
     const ekler = [
@@ -56,6 +57,15 @@ export default function Order({ formData, handleChange }) {
             value: 'sarimsak',
         },
     ];
+    const [count, setCount] = useState(1)
+    const [fiyat, setFiyat] = useState(0)
+    const [secTop, setSecTop] = useState(0)
+    const [selectedValue, setSelectedValue] = useState('')
+
+    
+    useEffect(()=>{setSecTop(formData.ekMalzemeler.length * 5 * count)}, [formData])
+    useEffect(()=>{setFiyat(85.5 * count)}, [count])
+    console.log(selectedValue)
 
     return (
         <section className="deneme">
@@ -70,7 +80,7 @@ export default function Order({ formData, handleChange }) {
                 <section className="order-info">
                     <h2>Position Absolute Aci Pizza</h2>
                     <div className="order-info-div">
-                        <p style={{ fontWeight: 'bold' }}>85.50₺</p>
+                        <p style={{ fontWeight: 'bold' }}>{fiyat}₺</p>
                         <p>4.9</p>
                         <p>(200)</p>
                     </div>
@@ -119,7 +129,8 @@ export default function Order({ formData, handleChange }) {
 
                             <div className="select-option-item">
                                 <legend className="select-legend">Hamur Sec</legend>
-                                <select>
+                                <select value={selectedValue} onChange={(e)=> setSelectedValue(e.target.value)}>
+                                    <option value='' disabled>Hamur Kalinligi Sec</option>
                                     <option value='ince'>Ince</option>
                                     <option value='normal'>Normal</option>
                                     <option value='kalin'>Kalin</option>
@@ -158,14 +169,14 @@ export default function Order({ formData, handleChange }) {
                 </section>
                 <footer className="footer-content">
                     <div className="arttir-azalt">
-                        <button id="azalt">-</button>
-                        <input type="text" id="sayac" defaultValue="1"/>
-                        <button id="arttir">+</button>
+                        <button id="azalt" onClick={() => setCount(count > 1 ? count-1: count)}>-</button>
+                        <input type="text" id="sayac" value={count}/>
+                        <button id="arttir"onClick={() => setCount(count + 1)}>+</button>
                     </div>
                     <div className="footer-order">
                         <h1>Siparis Toplami</h1>
-                        <p>Secimler</p>
-                        <p>Toplam</p>
+                        <p>Secimler: {secTop}</p>
+                        <p>Toplam: {fiyat + secTop}</p>
                         <button>Siparis Ver</button>
                     </div>
                 </footer>

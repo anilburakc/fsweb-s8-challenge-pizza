@@ -50,8 +50,8 @@
         margin: auto;
         text-align: start;
     }
-    .order-header img {
-
+    .select-option-item select{
+        width: 80%;
     }
 }
 
@@ -65,8 +65,8 @@
         margin: auto;
         text-align: start;
     }
-    .order-header img {
-
+    .select-option-item select{
+        width: 70%;
     }
 }
 @media (min-width: 1600px){
@@ -79,8 +79,8 @@
         margin: auto;
         text-align: start;
     }
-    .order-header img {
-
+    .select-option-item select{
+        width: 60%;
     }
 }
 @media (min-width: 1800px){
@@ -93,8 +93,8 @@
         margin: auto;
         text-align: start;
     }
-    .order-header img {
-
+    .select-option-item select{
+        width: 50%;
     }
 }
 @media (min-width: 2000px){
@@ -107,8 +107,8 @@
         margin: auto;
         text-align: start;
     }
-    .order-header img {
-
+    .select-option-item select{
+        width: 40%;
     }
 }
 
@@ -161,7 +161,7 @@
     
 }
 .select-option-item select{
-    width: 30%;
+    width: 90%;
 }
 
 .form-ekMalzemeler {
