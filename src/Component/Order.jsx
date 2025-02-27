@@ -2,7 +2,7 @@ import { NavLink } from "react-router-dom";
 import OrderCheck from "./OrderCheck";
 import { useEffect, useState } from "react";
 
-export default function Order({ formData, handleChange }) {
+export default function Order({ formData, handleChange, setFormData }) {
     const ekler = [
         {
             label: 'Pepperoni',
@@ -57,15 +57,13 @@ export default function Order({ formData, handleChange }) {
             value: 'sarimsak',
         },
     ];
-    const [count, setCount] = useState(1)
+
     const [fiyat, setFiyat] = useState(0)
     const [secTop, setSecTop] = useState(0)
-    const [selectedValue, setSelectedValue] = useState('')
 
     
-    useEffect(()=>{setSecTop(formData.ekMalzemeler.length * 5 * count)}, [formData])
-    useEffect(()=>{setFiyat(85.5 * count)}, [count])
-    console.log(selectedValue)
+    useEffect(()=>{setFormData((formData)=>({...formData, secimler: formData.ekMalzemeler.length * 5 * formData.count}))}, [formData.ekMalzemeler, formData.count]);
+    useEffect(()=>{setFormData((formData)=>({...formData, toplam: 85.5 * formData.count}))}, [formData.count])
 
     return (
         <section className="deneme">
@@ -80,7 +78,7 @@ export default function Order({ formData, handleChange }) {
                 <section className="order-info">
                     <h2>Position Absolute Aci Pizza</h2>
                     <div className="order-info-div">
-                        <p style={{ fontWeight: 'bold' }}>{fiyat}₺</p>
+                        <p style={{ fontWeight: 'bold' }}>85.5₺</p>
                         <p>4.9</p>
                         <p>(200)</p>
                     </div>
@@ -129,7 +127,7 @@ export default function Order({ formData, handleChange }) {
 
                             <div className="select-option-item">
                                 <legend className="select-legend">Hamur Sec</legend>
-                                <select value={selectedValue} onChange={(e)=> setSelectedValue(e.target.value)}>
+                                <select name='hamurSec' value={formData.hamurSec} onChange={handleChange}>
                                     <option value='' disabled>Hamur Kalinligi Sec</option>
                                     <option value='ince'>Ince</option>
                                     <option value='normal'>Normal</option>
@@ -160,23 +158,25 @@ export default function Order({ formData, handleChange }) {
                                 type="text"
                                 id="isim"
                                 name="isim"
+                                value={formData.isim}
+                                onChange={handleChange}
                             />
                             <label htmlFor="not">Siparis Notu</label>
-                            <textarea id="not" placeholder='Siparisine eklemek istedigin bir not var mi?'></textarea>
+                            <textarea value={formData.comment} onChange={handleChange} id="not" name='comment' placeholder='Siparisine eklemek istedigin bir not var mi?'></textarea>
                         </fieldset>
 
                     </form>
                 </section>
                 <footer className="footer-content">
                     <div className="arttir-azalt">
-                        <button id="azalt" onClick={() => setCount(count > 1 ? count-1: count)}>-</button>
-                        <input type="text" id="sayac" value={count}/>
-                        <button id="arttir"onClick={() => setCount(count + 1)}>+</button>
+                        <button id="azalt" onClick={() => setFormData((formData)=>({...formData, count: formData.count > 1 ? formData.count-1: formData.count}))}>-</button>
+                        <input name='count' type="text" id="sayac" value={formData.count} readOnly/>
+                        <button id="arttir" onClick={() => setFormData({...formData, count: formData.count + 1})}>+</button>
                     </div>
                     <div className="footer-order">
                         <h1>Siparis Toplami</h1>
-                        <p>Secimler: {secTop}</p>
-                        <p>Toplam: {fiyat + secTop}</p>
+                        <p>Secimler: {formData.secimler}</p>
+                        <p>Toplam: {formData.toplam + formData.secimler}</p>
                         <button>Siparis Ver</button>
                     </div>
                 </footer>

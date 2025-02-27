@@ -7,11 +7,14 @@ import { Route, Switch } from 'react-router-dom'
 
 
 const initialFormData ={
-  boyutSec: ['Kucuk', 'Orta', 'Buyuk'],
-  hamurSec: 'Hamur Kalinligi',
+  boyutSec: '',
+  hamurSec: '',
   ekMalzemeler: [],
   isim:'',
-  comment:''
+  comment:'',
+  toplam:'',
+  secimler:0,
+  count: 1
 }
 function App() {
   const [formData, setFormData] = useState(initialFormData)
@@ -32,8 +35,9 @@ function App() {
     }
     setFormData({...formData, [name]: newValue})
     console.log(newValue)
-  }
 
+  }
+  console.log(formData)
   return (
     <>
     <Switch>
@@ -41,7 +45,7 @@ function App() {
         <Home />
       </Route>
       <Route path='/order'>
-        <Order formData={formData} handleChange={handleChange}/>
+        <Order formData={formData} handleChange={handleChange} setFormData={setFormData}/>
       </Route>
       <Route path='/succsess'>
         <Succsess />
