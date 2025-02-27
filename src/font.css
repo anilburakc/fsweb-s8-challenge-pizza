@@ -1,0 +1,81 @@
+/* font-family: "Roboto Condensed", sans-serif;
+font-family: "Barlow", sans-serif;
+font-family: "Quattrocento", serif;
+font-family: "Satisfy", cursive; */
+
+/* -Sarı color: #FDC913
+-Açık Gri: color: #5F5F5F
+-Koyu Gri color: #292929
+-Kırmızı color: #CE2829
+-Bej: color: #FAF7F2 */
+
+
+h1{
+    color: #FAF7F2;
+    font-family: "Barlow", sans-serif;
+    font-weight: 400;
+    font-size: 3rem;
+}
+
+button{
+    background-color: #FDC913;
+    font-family: "Quattrocento", serif;
+    font-size: 1rem;
+}
+
+nav{
+    font-family: "Roboto Condensed", sans-serif;
+    font-weight: 100;
+    font-size: 0.7rem;
+}
+
+h2{
+    font-family: "Barlow", sans-serif; 
+    font-weight: 500;
+    font-size: 1.2rem;
+}
+h3{
+    font-family: "Barlow", sans-serif; 
+    font-weight: 500;
+    font-size: 1.5rem; 
+}
+.order-info-div p{
+    font-family: "Barlow", sans-serif; 
+    font-weight: 100;
+    font-size: 0.7rem; 
+}
+p{
+    font-family: "Roboto Condensed", sans-serif;
+    font-weight: 400;
+    line-height: 1.5rem;
+    color: #292929;
+}
+legend{
+    font-family: "Barlow", sans-serif;
+    font-weight: 500;
+}
+.select-legend{
+    margin-bottom: 0.5rem;
+}
+.form-ekMalzemeler legend{
+    padding-top: 1rem;
+}
+.form-ekMalzemeler label{
+    font-family: "Quattrocento", serif;
+    font-weight: 600;
+    font-size: 0.8rem;
+}
+.isim-not label{
+    font-family: "Barlow", sans-serif;
+    font-weight: 500;
+}
+
+.top-p{
+    color: #CE2829
+}
+.footer-span{
+    font-family: "Roboto Condensed", sans-serif;
+    font-weight: 400;
+    line-height: 1.5rem;
+    color: #292929;
+}

@@ -10,12 +10,7 @@
     text-align: center;
 }
 
-.order-header img {
-
-}
-
 .header-nav {
-
     width: 90%;
     margin: auto;
     text-align: start;
@@ -116,7 +111,9 @@
 
 .order-info-div {
     display: flex;
-
+    align-items: center;
+    height: 2rem;
+    padding-top: 0.5rem;
 }
 
 .order-info-div> :nth-child(1) {
@@ -136,42 +133,42 @@
     flex: 15%;
 }
 
-.info-yazi{
-
-}
 
 .order-form{
     width: 100%;
 }
-.form-content {
-
-}
-
 .form-select {
-
     display: grid;
     grid-template-columns: repeat(2, 1fr);
+    border: none;
 }
 
 .select-radio-item,
 .select-option-item {
-
     display: flex;
     flex-direction: column;
-    
+}
+.select-radio-item{
+    gap: 0.5rem;
 }
 .select-option-item select{
     width: 90%;
 }
 
 .form-ekMalzemeler {
-
+    border: none;
     display: flex;
     flex-direction: column;
 }
+.form-ek-info{
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+.form-ekMalzemeler label{
+    margin-bottom: 1rem;
+}
 
 .checkbox-container {
-
     display: grid;
     grid-template-columns: repeat(2, 1fr);
 }
@@ -185,24 +182,29 @@
 }
 
 .isim-not {
-
+    border: none;
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
 }
 
 .footer-content {
-
     display: flex;
     flex-direction: row;
     width: 100%;
+    justify-content: space-between;
+    margin-bottom: 0;
+    padding-bottom: 0;
 }
 .footer-order{
     display: flex;
     flex-direction: column;
-    flex: 75%;
+    width: 70%;
+    border: 1px solid #5F5F5F;
+    border-color: #5F5F5F;
+    border-bottom: none;
 }
-.footer-order h1{
+.footer-order h2{
     margin-left: 70px;
     margin-bottom: 0;
 }
@@ -210,23 +212,34 @@
     margin-left: 70px;
     margin-bottom: 0;
 }
+.footer-span{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    margin-left: 70px;
+    margin-bottom: 0;
+}
+.footer-secim{
+    text-align: center;
+}
 
 .footer-order button {
     border: none;
-    border-radius: 50px;
-    height: 30px;
+    height: 3rem;
     background-color: #FDC913;
-    margin-top: 10px;
+    width: 100%;
+    align-self: center;
+    margin-top: 0;
 }
 
 .arttir-azalt {
     display: flex;
-    flex: 25%;
+    width: 20%;
     align-items: start;
 }
 
 .arttir-azalt> :nth-child(1) {
-
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
     flex: 25%;
     width: 25%;
     height: 25%;
@@ -243,7 +256,8 @@
 }
 
 .arttir-azalt> :nth-child(3) {
-
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
     flex: 25%;
     width: 25%;
     height: 25%;

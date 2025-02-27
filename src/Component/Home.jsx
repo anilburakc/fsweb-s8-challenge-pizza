@@ -4,9 +4,9 @@ export default function Home(){
     return(
       <div className="home-container">
         <img src="/images/iteration-1-images/logo.svg"/>
-        <p>
+        <h1>
           KOD ACIKTIRIR <br/> PIZZA DOYURUR
-        </p>
+        </h1>
         <Link to='/order'>
           <button>ACIKTIM</button>
         </Link>

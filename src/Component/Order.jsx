@@ -74,7 +74,7 @@ export default function Order({ formData, handleChange, setFormData, isValid, er
                 <section className="order-info">
                     <h2>Position Absolute Aci Pizza</h2>
                     <div className="order-info-div">
-                        <p style={{ fontWeight: 'bold' }}>{formData.fiyat}₺</p>
+                        <h3 style={{ fontWeight: 'bold' }}>{formData.fiyat}₺</h3>
                         <p>4.9</p>
                         <p>(200)</p>
                     </div>
@@ -132,7 +132,7 @@ export default function Order({ formData, handleChange, setFormData, isValid, er
                             </div>
                         </fieldset>
                         <fieldset className="form-ekMalzemeler">
-                            <legend>Ek Malzemeler</legend>
+                            <legend>Ek Malzemeler (5₺)</legend>
                             {errors.ekMalzemeler && <p className="form-ek-info" style={{ color: 'red' }}>En az 4, en fazla 10 malzeme sec.</p>}
                             <div className="checkbox-container">
                                 {ekler.map((ek) => (
@@ -143,6 +143,7 @@ export default function Order({ formData, handleChange, setFormData, isValid, er
                                         fieldName="ekMalzemeler"
                                         value={ek.value}
                                         label={ek.label}
+                                        data-cy='checkbox'
                                     />
                                 ))}
                             </div>
@@ -152,6 +153,7 @@ export default function Order({ formData, handleChange, setFormData, isValid, er
                             <label htmlFor="isim">Isminizi giriniz:</label>
                             {errors.isim && <span style={{ color: 'red' }}>{errorMesajlari.isim}</span>}
                             <input
+                                data-cy='isim'
                                 type="text"
                                 id="isim"
                                 name="isim"
@@ -171,10 +173,12 @@ export default function Order({ formData, handleChange, setFormData, isValid, er
                         <button id="arttir" onClick={() => setFormData({ ...formData, count: formData.count + 1 })}>+</button>
                     </div>
                     <div className="footer-order">
-                        <h1>Siparis Toplami</h1>
-                        <p>Secimler: {formData.secimler}</p>
-                        <p>Toplam: {formData.toplam}</p>
-                        <button disabled={!isValid} onClick={handleSubmit}>Siparis Ver</button>
+                        <h2>Siparis Toplami</h2>
+                        {/* <p>Secimler: {formData.secimler}₺</p> */}
+                        <div className="footer-span"><span>Secimler:</span> <span className="footer-secim">{formData.secimler}₺</span></div>
+                        <div className="footer-span"><span>Toplam:</span><span className="footer-secim">{formData.toplam}₺</span></div>
+                        {/* <p className="top-p">Toplam: {formData.toplam}₺</p> */}
+                        <button disabled={!isValid} onClick={handleSubmit}>SIPARIS VER</button>
                     </div>
                 </footer>
 
