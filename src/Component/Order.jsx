@@ -123,7 +123,7 @@ export default function Order({ formData, handleChange, setFormData, isValid, er
 
                             <div className="select-option-item">
                                 <legend className="select-legend">Hamur Sec{errors.hamurSec && <span style={{ color: 'red' }}>*</span>}</legend>
-                                <select name='hamurSec' value={formData.hamurSec} onChange={handleChange}>
+                                <select className='cypress-select' name='hamurSec' value={formData.hamurSec} onChange={handleChange}>
                                     <option value='' disabled>Hamur Kalinligi Sec</option>
                                     <option value='ince'>Ince</option>
                                     <option value='normal'>Normal</option>
@@ -143,7 +143,7 @@ export default function Order({ formData, handleChange, setFormData, isValid, er
                                         fieldName="ekMalzemeler"
                                         value={ek.value}
                                         label={ek.label}
-                                        data-cy='checkbox'
+                                        data-cy="checkbox"
                                     />
                                 ))}
                             </div>
@@ -178,7 +178,7 @@ export default function Order({ formData, handleChange, setFormData, isValid, er
                         <div className="footer-span"><span>Secimler:</span> <span className="footer-secim">{formData.secimler}₺</span></div>
                         <div className="footer-span"><span>Toplam:</span><span className="footer-secim">{formData.toplam}₺</span></div>
                         {/* <p className="top-p">Toplam: {formData.toplam}₺</p> */}
-                        <button disabled={!isValid} onClick={handleSubmit}>SIPARIS VER</button>
+                        <button data-cy='submit' disabled={!isValid} onClick={handleSubmit} type="Submit">SIPARIS VER</button>
                     </div>
                 </footer>
 
